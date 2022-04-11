@@ -19,11 +19,11 @@ CREATE TABLE `Arme` (
 
 -- --------------------------------------------------------
 --
--- Structure de la table `Competence-Heros`
+-- Structure de la table `CompetenceHeros`
 --
 
-DROP TABLE IF EXISTS `Competence-Heros`;
-CREATE TABLE `Competence-Heros` (
+DROP TABLE IF EXISTS `CompetenceHeros`;
+CREATE TABLE `CompetenceHeros` (
   `CompetenceID` tinyint(1) NOT NULL,
   `HerosID` tinyint(1) NOT NULL,
   `Nom` varchar(50) NOT NULL
@@ -90,10 +90,10 @@ INSERT INTO `Competence` (`ID`, `Type`, `Effet`) VALUES
 (4, 'Defense', '50');
 
 --
--- Insertion des données de la table `Compétence-Heros`
+-- Insertion des données de la table `CompétenceHeros`
 --
 
-INSERT INTO `Competence-Heros` (`CompetenceID`, `HerosID`, `Nom`) VALUES
+INSERT INTO `CompetenceHeros` (`CompetenceID`, `HerosID`, `Nom`) VALUES
 (1, 1, 'Reboot your brain'),
 (3, 2, 'Bouclier Mac'),
 (1, 3, 'Vanne divine'),
@@ -123,9 +123,9 @@ ALTER TABLE `Heros`
   ADD UNIQUE KEY `Heros.Nom` (`Nom`);
 
 --
--- Index pour la table `Competence-Heros`
+-- Index pour la table `CompetenceHeros`
 --
-ALTER TABLE `Competence-Heros`
+ALTER TABLE `CompetenceHeros`
   ADD KEY `HerosID` (`HerosID`),
   ADD KEY `CompetenceID` (`CompetenceID`);
 
@@ -148,9 +148,9 @@ ALTER TABLE `Heros`
   MODIFY `ID` tinyint(1) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- Contraintes pour la table `Competence-Heros`
+-- Contraintes pour la table `CompetenceHeros`
 --
-ALTER TABLE `Competence-Heros`
+ALTER TABLE `CompetenceHeros`
   ADD CONSTRAINT `FK_Heros` FOREIGN KEY (`HerosID`) REFERENCES `Heros` (`ID`),
   ADD CONSTRAINT `FK_Competence` FOREIGN KEY (`CompetenceID`) REFERENCES `Competence` (`ID`);
 
